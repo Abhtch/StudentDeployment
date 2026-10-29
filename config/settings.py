@@ -77,13 +77,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'student_db',
-        'USER': 'root',
-        'PASSWORD': '1qaz2wsx',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'NAME': os.environ.get('DB_NAME', 'student_db'),
+        'USER': os.environ.get('DB_USER', 'student_app'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+        'HOST': os.environ.get('DB_HOST', 'mysql'),
+        'PORT': os.environ.get('DB_PORT', '3306'),
     }
 }
+
 
 
 # Password validation
